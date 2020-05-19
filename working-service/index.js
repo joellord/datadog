@@ -4,7 +4,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.get("/hello", (req, res) => {
+app.get("/", (req, res) => {
   res.send({data: "Hello", timestamp: (new Date()).getTime()}).status(200);
 });
 

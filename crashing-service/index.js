@@ -3,15 +3,16 @@ const express = require("express");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
+const TTC = 60;
 
-console.log("This server will crash in 30 seconds");
+console.log(`This server will crash in ${TTC} seconds`);
 console.log("Initiating countdown");
 setTimeout(() => {
   console.log("System will crash now with a random error number");
   process.exit((Math.random() * 100) + 1);
-}, 30 * 1000);
+}, TTC * 1000);
 
-app.get("/hello", (req, res) => {
+app.get("/", (req, res) => {
   res.send({data: "Hello", timestamp: (new Date()).getTime()}).status(200);
 });
 
